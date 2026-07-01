@@ -23,9 +23,3 @@ RUN wget --progress=dot:giga -O '/comfyui/input/pexels-peterfazekas-1137340.jpg'
 RUN wget --progress=dot:giga -O '/comfyui/input/5e8c967d8323c3da7355fe04220a8708.jpg' "https://cool-anteater-319.convex.cloud/api/storage/861212f8-904c-45d3-914c-b4bce29dbe00"
 RUN wget --progress=dot:giga -O '/comfyui/input/pexels-alina-zahorulko-48514961-31445409.jpg' "https://cool-anteater-319.convex.cloud/api/storage/5e50903d-a381-4efd-b9a6-3b4c147ec6cb"
 RUN wget --progress=dot:giga -O '/comfyui/input/creative-lookbook-photoshoot-for-ethnic-indianwear-brand-32_orig.jpg' "https://cool-anteater-319.convex.cloud/api/storage/a765d66d-8ca2-4fb5-9fc0-72621a333435"
-
-# Force Python to dump console output instantly instead of caching/buffering it
-ENV PYTHONUNBUFFERED=1
-
-# Start ComfyUI and dynamically locate and execute your handler file
-CMD ["bash", "-c", "python3 /comfyui/main.py --listen 127.0.0.1 --port 8188 & python3 $(find / -maxdepth 2 -name '*handler.py' | head -n 1)"]
